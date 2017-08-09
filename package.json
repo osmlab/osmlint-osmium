@@ -1,0 +1,27 @@
+{
+  "name": "osmlint-osmium",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/osmlab/osmlint-osmium.git"
+  },
+  "bin": {
+    "osmlinto": "cli.js"
+  },
+  "bugs": {
+    "url": "https://github.com/osmlab/osmlint-osmium/issues"
+  },
+  "homepage": "https://github.com/osmlab/osmlint-osmium#readme",
+  "dependencies": {
+    "@turf/turf": "^4.6.1",
+    "buffered-writer": "^0.2.3",
+    "minimist": "^1.2.0",
+    "osmium": "^0.5.4",
+    "underscore": "^1.8.3"
+  }
+}

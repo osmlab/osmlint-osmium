@@ -1,0 +1,5 @@
+*.pbf
+*.geojson
+test.json
+node_modules/
+.DS_Store
