@@ -1,11 +1,11 @@
 'use strict';
+var fs = require('fs');
 var osmium = require('osmium');
-var bufferedWriter = require('buffered-writer');
 var turf = require('@turf/turf');
 var _ = require('underscore');
 
-module.exports = function(pbfFile, output) {
-  var stream = bufferedWriter.open(output);
+module.exports = function(pbfFile, outputFile) {
+  var wstream = fs.createWriteStream(outputFile);
   var relationsMemb = {};
   var relNodes = {};
   var relWays = {};
@@ -99,9 +99,9 @@ module.exports = function(pbfFile, output) {
       line.properties = _.extend(relations[rel], {
         relations: relationsMemb[rel]
       });
-      stream.write(JSON.stringify(line) + '\n');
+      wstream.write(JSON.stringify(line) + '\n');
     }
-    stream.close();
+    wstream.end();
   });
 
   handlerA.end();
