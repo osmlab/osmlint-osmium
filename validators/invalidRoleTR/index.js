@@ -96,12 +96,11 @@ module.exports = function(pbfFile, outputFile) {
         type: 'FeatureCollection',
         features: relationsMemb[rel]
       };
-      wstream.write(JSON.stringify(fc) + '\n');
       var line = turf.polygonToLineString(turf.bboxPolygon(turf.bbox(fc)));
       line.properties = _.extend(relations[rel], {
         relations: relationsMemb[rel]
       });
-      // wstream.write(JSON.stringify(line) + '\n');
+      wstream.write(JSON.stringify(line) + '\n');
     }
     wstream.end();
   });

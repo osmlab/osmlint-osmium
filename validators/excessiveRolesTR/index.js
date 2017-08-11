@@ -19,7 +19,10 @@ module.exports = function(pbfFile, outputFile) {
       for (var d = 0; d < members.length; d++) {
         if (tr[members[d].role]) {
           tr[members[d].role].push(members[d]);
-          flagTR = true;
+          //It is good to have more than one `via`-way but not `from` or `to`.
+          if (!(members[d].role === 'via' && members[d].type === 'w')) {
+            flagTR = true;
+          }
         } else {
           tr[members[d].role] = [members[d]];
         }
