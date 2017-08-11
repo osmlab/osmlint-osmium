@@ -1,18 +1,15 @@
 'use strict';
-var path = require('path');
 var osmium = require('osmium');
-var buffered_writer = require('buffered-writer');
+var bufferedWriter = require('buffered-writer');
 var turf = require('@turf/turf');
 var _ = require('underscore');
 
 module.exports = function(pbfFile, output) {
-  var stream = buffered_writer.open(output);
+  var stream = bufferedWriter.open(output);
   var relationsMemb = {};
   var relNodes = {};
   var relWays = {};
   var relations = {};
-  var modes = {};
-  var ways = {};
   var handlerA = new osmium.Handler();
   handlerA.on('relation', function(relation) {
     if (relation.tags('type') === 'restriction') {
@@ -20,10 +17,11 @@ module.exports = function(pbfFile, output) {
         from: false,
         to: false,
         via: false
+      };
+      var members = relation.members();
+      for (var d = 0; d < members.length; d++) {
+        tr[members[d].role] = members[d];
       }
-      relation.members().filter(function(member) {
-        tr[member.role] = member;
-      });
       var elems = _.without(_.values(tr), false);
       if (elems.length < 3) {
         relations[relation.id] = _.extend({
@@ -67,7 +65,7 @@ module.exports = function(pbfFile, output) {
     }
   });
 
-  var reader = new osmium.Reader(pbfFile);
+  reader = new osmium.Reader(pbfFile);
   osmium.apply(reader, handlerB);
 
   var handlerC = new osmium.Handler();
@@ -87,21 +85,21 @@ module.exports = function(pbfFile, output) {
     }
   });
 
-  var reader = new osmium.Reader(pbfFile);
-  var location_handler = new osmium.LocationHandler();
-  osmium.apply(reader, location_handler, handlerC);
+  reader = new osmium.Reader(pbfFile);
+  var locationHandler = new osmium.LocationHandler();
+  osmium.apply(reader, locationHandler, handlerC);
 
   handlerC.on('done', function() {
     for (var rel in relationsMemb) {
       var fc = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: relationsMemb[rel]
       };
       var line = turf.polygonToLineString(turf.bboxPolygon(turf.bbox(fc)));
       line.properties = _.extend(relations[rel], {
         relations: relationsMemb[rel]
       });
-      stream.write(JSON.stringify(line) + " \n");
+      stream.write(JSON.stringify(line) + '\n');
     }
     stream.close();
   });
