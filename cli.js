@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 'use strict';
 var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(2));
@@ -15,6 +16,7 @@ var usage = function() {
   }
 
   var validator = (function(name) {
+    // name = name.toLowerCase();
     var validators = fs.readdirSync(path.join(__dirname, '/validators/'));
     for (var i = 0; i < validators.length; i++) {
       if (validators[i].toLowerCase() === name) {

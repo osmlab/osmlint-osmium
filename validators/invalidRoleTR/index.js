@@ -18,7 +18,7 @@ module.exports = function(pbfFile, outputFile) {
       var flagTR = false;
       var members = relation.members();
       for (var d = 0; d < members.length; d++) {
-        if (!members[d].role) {
+        if (!members[d].role || roles.indexOf(members[d].role) < 0) {
           flagTR = true;
         }
         tr[members[d].ref] = members[d];
