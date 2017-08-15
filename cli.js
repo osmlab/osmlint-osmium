@@ -37,21 +37,6 @@ var usage = function() {
     }
   }
 
-  // var bbox = argv.bbox ? JSON.parse(argv.bbox) : null;
-  // var zoom = argv.zoom ? parseInt(argv.zoom) : 12;
-  // var opts = {
-  //   bbox: bbox,
-  //   zoom: zoom
-  // };
-
-  // console.log([opts].concat(argv._.slice(1)))
   validator.apply(null, [opts].concat(argv._.slice(1)));
 
-
-  // var pbfFile = argv._.slice(0);
-  // var output = argv._.slice(1);
-  // console.log(opts);
-
-
-  // validator.apply(pbfFile, output, JSON.stringify(opts));
 })();

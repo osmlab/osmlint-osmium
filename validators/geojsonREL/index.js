@@ -11,17 +11,18 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
   var ways = {};
   var relations = {};
   var handlerA = new osmium.Handler();
-  var key = _.keys(tags)[0];
   handlerA.on('relation', function(relation) {
-    if (relation.tags()[key] === tags[key]) {
+    if (checkTags(relation.tags(), tags)) {
       var members = relation.members();
       relations[relation.id] = _.extend({
-        id: relation.id,
-        version: relation.version,
-        changeset: relation.changeset,
-        uid: relation.uid,
-        user: relation.user
-      }, relation.tags(), {
+        '@id': relation.id,
+        '@version': relation.version,
+        '@changeset': relation.changeset,
+        '@uid': relation.uid,
+        '@user': relation.user
+      }, {
+        tags: relation.tags()
+      }, {
         members: members
       });
       for (var i = 0; i < members.length; i++) {
@@ -51,11 +52,19 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
     if (nodes[node.id]) {
       var relationsNode = nodes[node.id];
       for (var n = 0; n < relationsNode.length; n++) {
-        var properties = _.extend(node.tags(), relationsNode[n], {
-          relationId: relationsNode[n].relation
-        }, {
-          relation: relations[relationsNode[n].relation]
-        });
+        var properties = _.extend({
+            '@id': node.id,
+            '@version': node.version,
+            '@changeset': node.changeset,
+            '@uid': node.uid,
+            '@user': node.user
+          }, node.tags(), relationsNode[n], {
+            relationId: relationsNode[n].relation
+          }, {
+            relation: relations[relationsNode[n].relation]
+          },
+          relations[relationsNode[n].relation].tags);
+
         var feature = {
           type: 'Feature',
           properties: properties,
@@ -78,11 +87,17 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
     if (ways[way.id]) {
       var relationsWay = ways[way.id];
       for (var m = 0; m < relationsWay.length; m++) {
-        var properties = _.extend(way.tags(), relationsWay[m], {
+        var properties = _.extend({
+          '@id': way.id,
+          '@version': way.version,
+          '@changeset': way.changeset,
+          '@uid': way.uid,
+          '@user': way.user
+        }, way.tags(), relationsWay[m], {
           relationId: relationsWay[m].relation
         }, {
           relation: relations[relationsWay[m].relation]
-        });
+        }, relations[relationsWay[m].relation].tags);
         var feature = {
           type: 'Feature',
           properties: properties,
@@ -103,15 +118,11 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
   handlerC.on('done', function() {
     for (var rel in relationsMemb) {
       if (relationsMemb[rel].length > 0) {
-        // wstream.write(JSON.stringify(relationsMemb[rel]) + '\n')
         var fc = {
           type: 'FeatureCollection',
           features: relationsMemb[rel]
         };
-        // wstream.write(JSON.stringify(fc) + '\n');
-        fs.appendFile(outputFile, JSON.stringify(fc), function(err) {
-          if (err) throw err;
-        });
+        wstream.write(JSON.stringify(fc) + '\n');
       }
     }
   });
@@ -121,3 +132,16 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
   handlerC.end();
   wstream.end();
 };
+
+function checkTags(tags, valueTags) {
+  var match = 0;
+  _.each(valueTags, function(v, k) {
+    if (tags[k] === v || (tags[k] && v === '*')) {
+      match++;
+    }
+  });
+  if (match === _.size(valueTags)) {
+    return true
+  }
+  return false;
+}
