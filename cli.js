@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+
 'use strict';
 var fs = require('fs');
 var argv = require('minimist')(process.argv.slice(2));
@@ -28,7 +29,14 @@ var usage = function() {
     console.error('Unknown validator "' + argv._[0] + '"');
     return usage();
   }
-  var pbfFile = argv._.slice(0);
-  var output = argv._.slice(1);
-  validator.apply(pbfFile, output);
+
+  var opts = {};
+  for (var tag in argv) {
+    if (tag !== '_') {
+      opts[tag] = argv[tag];
+    }
+  }
+
+  validator.apply(null, [opts].concat(argv._.slice(1)));
+
 })();
