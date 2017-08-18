@@ -2,8 +2,8 @@
 var fs = require('fs');
 var osmium = require('osmium');
 var _ = require('underscore');
-var util = require('../util');
 var turf = require('@turf/turf');
+var util = require('../util');
 
 module.exports = function(tags, pbfFile, outputFile, callback) {
   var wstream = fs.createWriteStream(outputFile);
