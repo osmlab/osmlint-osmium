@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+  <node id='54307210' timestamp='2011-07-08T06:19:45Z' uid='82317' user='AM909' version='5' changeset='8663168' lat='33.9463738' lon='-117.1785057'>
+    <tag k='highway' v='traffic_signals' />
+    <tag k='image_direction' v='N;E;W;S' />
+    <tag k='source' v='bing_imagery_0.25m_201005;survey;image' />
+    <tag k='source_ref' v='AM909_DSCY0837;AM909_DSCY0838;AM909_DSCY0839;AM909_DSCY0840' />
+  </node>
+  <node id='54307211' timestamp='2015-04-09T11:16:52Z' uid='2115749' user='srividya_c' version='4' changeset='30091459' lat='33.9463811' lon='-117.1741648' />
+  <node id='54307213' timestamp='2015-04-09T11:16:52Z' uid='2115749' user='srividya_c' version='4' changeset='30091459' lat='33.9463898' lon='-117.1726296' />
+  <node id='54307214' timestamp='2011-06-09T06:45:57Z' uid='82317' user='AM909' version='4' changeset='8385575' lat='33.946389' lon='-117.1656143' />
+  <node id='54307216' timestamp='2011-06-11T00:19:23Z' uid='304970' user='Al Pascual' version='4' changeset='8402044' lat='33.9464107' lon='-117.1567436' />
+  <node id='54403422' timestamp='2011-03-18T11:07:40Z' uid='82317' user='AM909' version='5' changeset='7594041' lat='33.798095' lon='-116.9699209' />
+  <node id='54491840' timestamp='2011-03-18T11:08:15Z' uid='82317' user='AM909' version='6' changeset='7594041' lat='33.7972612' lon='-116.9689311' />
+  <node id='54502694' timestamp='2013-07-25T20:31:36Z' uid='587790' user='JaggedMind' version='6' changeset='17093690' lat='33.7949758' lon='-116.9661472' />
+  <node id='54502697' timestamp='2011-03-18T11:08:28Z' uid='82317' user='AM909' version='4' changeset='7594041' lat='33.7939123' lon='-116.9648331' />
+  <node id='54502700' timestamp='2011-03-18T11:07:42Z' uid='82317' user='AM909' version='4' changeset='7594041' lat='33.7928857' lon='-116.9636031' />
+  <node id='54502703' timestamp='2011-03-18T11:08:18Z' uid='82317' user='AM909' version='4' changeset='7594041' lat='33.7919791' lon='-116.9625449' />
+  <node id='54502704' timestamp='2011-03-18T11:08:32Z' uid='82317' user='AM909' version='4' changeset='7594041' lat='33.7912807' lon='-116.9617031' />
+  <node id='54502705' timestamp='2011-03-18T11:08:43Z' uid='82317' user='AM909' version='4' changeset='7594041' lat='33.7900723' lon='-116.9602151' />
+  <node id='54502710' timestamp='2011-03-18T11:08:26Z' uid='82317' user='AM909' version='4' changeset='7594041' lat='33.7890257' lon='-116.9589151' />
+  <node id='1207167142' timestamp='2011-03-18T11:07:03Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7899532' lon='-116.9600447' />
+  <node id='1207167170' timestamp='2011-03-18T11:07:04Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7993262' lon='-116.9720003' />
+  <node id='1207167189' timestamp='2011-03-18T11:07:06Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7977717' lon='-116.9695227' />
+  <node id='1207167193' timestamp='2011-03-18T11:07:06Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.799505' lon='-116.9717533' />
+  <node id='1207167290' timestamp='2011-03-18T11:07:11Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7920732' lon='-116.9626336' />
+  <node id='1207167314' timestamp='2011-03-18T11:07:13Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7976702' lon='-116.9694486' />
+  <node id='1207167321' timestamp='2011-03-18T11:07:13Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7994922' lon='-116.971816' />
+  <node id='1207167427' timestamp='2011-03-18T11:07:19Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7995047' lon='-116.9716332' />
+  <node id='1207167443' timestamp='2011-03-18T11:07:19Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7918735' lon='-116.9624214' />
+  <node id='1207167502' timestamp='2011-03-18T11:07:20Z' uid='82317' user='AM909' version='1' changeset='7594041' lat='33.7994507' lon='-116.9718827' />
+  <node id='4380246803' timestamp='2016-09-02T07:53:03Z' uid='4437318' user='hoream_telenav' version='1' changeset='41863358' lat='33.7890523' lon='-116.9589475' />
+  <way id='104651454' timestamp='2017-06-09T21:50:31Z' uid='1330847' user='TheDutchMan13' version='4' changeset='49408223'>
+    <nd ref='1207167427' />
+    <nd ref='54403422' />
+    <nd ref='1207167189' />
+    <nd ref='1207167314' />
+    <nd ref='54491840' />
+    <nd ref='54502694' />
+    <nd ref='54502697' />
+    <nd ref='54502700' />
+    <nd ref='1207167290' />
+    <nd ref='54502703' />
+    <nd ref='1207167443' />
+    <nd ref='54502704' />
+    <nd ref='54502705' />
+    <nd ref='1207167142' />
+    <nd ref='4380246803' />
+    <nd ref='54502710' />
+    <tag k='highway' v='tertiary' />
+    <tag k='name' v='Idyllwild Drive' />
+    <tag k='source' v='bing_imagery_0.25m_201005' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Riverside, CA' />
+    <tag k='tiger:name_base' v='Idyllwild' />
+    <tag k='tiger:name_type' v='Dr' />
+  </way>
+  <way id='104651474' timestamp='2011-03-18T11:07:30Z' uid='82317' user='AM909' version='1' changeset='7594041'>
+    <nd ref='1207167170' />
+    <nd ref='1207167502' />
+    <nd ref='1207167321' />
+    <nd ref='1207167193' />
+    <nd ref='1207167427' />
+    <tag k='highway' v='primary_link' />
+    <tag k='oneway' v='yes' />
+    <tag k='source' v='bing_imagery_0.25m_201005' />
+  </way>
+  <way id='120777361' timestamp='2014-09-29T20:50:42Z' uid='3392' user='SimMoonXP' version='3' changeset='25755751'>
+    <nd ref='54307210' />
+    <nd ref='54307211' />
+    <nd ref='54307213' />
+    <nd ref='54307214' />
+    <nd ref='54307216' />
+    <tag k='highway' v='secondary' />
+    <tag k='name' v='Ironwood Avenue' />
+    <tag k='source' v='bing_imagery_0.25m_201005;survey;image' />
+    <tag k='source_ref' v='AM909_DSCY0837' />
+  </way>
+  <relation id='1655470' timestamp='2015-02-16T17:16:18Z' uid='703517' user='Iowa Kid' version='2' changeset='28890670'>
+    <member type='way' ref='120777361' role='from' />
+    <member type='node' ref='54307210' role='via' />
+    <member type='way' ref='120777361' role='to' />
+    <tag k='source' v='bing_imagery_0.25m_201005;survey;image' />
+    <tag k='source_ref' v='AM909_DSCY0839' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='4465010' timestamp='2016-10-09T11:15:36Z' uid='118021' user='maggot27' version='2' changeset='42751713'>
+    <member type='way' ref='104651474' role='from' />
+    <member type='node' ref='1207167427' role='via' />
+    <member type='way' ref='104651454' role='to' />
+    <tag k='restriction' v='only_right_turn' />
+  </relation>
+</osm>
