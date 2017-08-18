@@ -1,15 +1,18 @@
 'use strict';
 var fs = require('fs');
 var osmium = require('osmium');
-var turf = require('@turf/turf');
 var _ = require('underscore');
+var turf = require('@turf/turf');
+var util = require('../util');
 
-module.exports = function(pbfFile, outputFile) {
+module.exports = function(tags, pbfFile, outputFile, callback) {
   var wstream = fs.createWriteStream(outputFile);
-  var relationsMemb = {};
-  var relNodes = {};
-  var relWays = {};
+  var relationMembers = {};
+  var nodes = {};
+  var ways = {};
   var relations = {};
+  var osmlint = 'missingroletr';
+
   var handlerA = new osmium.Handler();
   handlerA.on('relation', function(relation) {
     if (relation.tags('type') === 'restriction') {
@@ -24,43 +27,49 @@ module.exports = function(pbfFile, outputFile) {
       }
       var elems = _.without(_.values(tr), false);
       if (elems.length < 3) {
-        relations[relation.id] = _.extend({
-          id: relation.id,
-          version: relation.version,
-          changeset: relation.changeset,
-          uid: relation.uid,
-          user: relation.user
-        }, relation.tags(), {
-          members: elems
-        });
-        for (var i = 0; i < elems.length; i++) {
-          elems[i].relation = relation.id;
-          if (elems[i].type === 'n') {
-            relNodes[elems[i].ref] = elems[i];
+        var relationFeature = util.relationFeature(relation);
+        relations[relation.id] = relationFeature;
+        for (var i = 0; i < members.length; i++) {
+          var member = members[i];
+          member.idrel = relation.id;
+
+          //Check nodes
+          if (member.type === 'n') {
+            if (nodes[member.ref]) {
+              nodes[member.ref].push(member);
+            } else {
+              nodes[member.ref] = [member];
+            }
           }
-          if (elems[i].type === 'w') {
-            relWays[elems[i].ref] = elems[i];
+          //Check ways
+          if (member.type === 'w') {
+            if (ways[member.ref]) {
+              ways[member.ref].push(member);
+            } else {
+              ways[member.ref] = [member];
+            }
           }
         }
       }
     }
   });
+
   var reader = new osmium.BasicReader(pbfFile);
   osmium.apply(reader, handlerA);
 
   var handlerB = new osmium.Handler();
   handlerB.on('node', function(node) {
-    if (relNodes[node.id]) {
-      var properties = _.extend(node.tags(), relNodes[node.id]);
-      var feature = {
-        type: 'Feature',
-        properties: properties,
-        geometry: node.geojson()
-      };
-      if (relationsMemb[properties.relation]) {
-        relationsMemb[properties.relation].push(feature);
-      } else {
-        relationsMemb[properties.relation] = [feature];
+    if (nodes[node.id]) {
+      //one node can belong to many relations
+      var nodeRols = nodes[node.id];
+      for (var n = 0; n < nodeRols.length; n++) {
+        var nodeRel = nodeRols[n];
+        var nodeFeature = util.nodeFeature(node, relations[nodeRel.idrel], nodeRel);
+        if (relationMembers[nodeFeature.properties['@idrel']]) {
+          relationMembers[nodeFeature.properties['@idrel']].push(nodeFeature);
+        } else {
+          relationMembers[nodeFeature.properties['@idrel']] = [nodeFeature];
+        }
       }
     }
   });
@@ -70,17 +79,17 @@ module.exports = function(pbfFile, outputFile) {
 
   var handlerC = new osmium.Handler();
   handlerC.on('way', function(way) {
-    if (relWays[way.id]) {
-      var properties = _.extend(way.tags(), relWays[way.id]);
-      var feature = {
-        type: 'Feature',
-        properties: properties,
-        geometry: way.geojson()
-      };
-      if (relationsMemb[properties.relation]) {
-        relationsMemb[properties.relation].push(feature);
-      } else {
-        relationsMemb[properties.relation] = [feature];
+    if (ways[way.id]) {
+      //one way can belong to many relations
+      var wayRols = ways[way.id];
+      for (var m = 0; m < wayRols.length; m++) {
+        var wayRol = wayRols[m];
+        var wayFeature = util.wayFeature(way, relations[wayRol.idrel], wayRol);
+        if (relationMembers[wayFeature.properties['@idrel']]) {
+          relationMembers[wayFeature.properties['@idrel']].push(wayFeature);
+        } else {
+          relationMembers[wayFeature.properties['@idrel']] = [wayFeature];
+        }
       }
     }
   });
@@ -90,21 +99,28 @@ module.exports = function(pbfFile, outputFile) {
   osmium.apply(reader, locationHandler, handlerC);
 
   handlerC.on('done', function() {
-    for (var rel in relationsMemb) {
-      var fc = {
-        type: 'FeatureCollection',
-        features: relationsMemb[rel]
-      };
-      var line = turf.polygonToLineString(turf.bboxPolygon(turf.bbox(fc)));
-      line.properties = _.extend(relations[rel], {
-        relations: relationsMemb[rel]
-      });
-      wstream.write(JSON.stringify(line) + '\n');
+    for (var rel in relationMembers) {
+      if (relationMembers[rel].length > 0) {
+        var fc = {
+          type: 'FeatureCollection',
+          features: relationMembers[rel]
+        };
+        var line = turf.polygonToLineString(turf.bboxPolygon(turf.bbox(fc)));
+        line.properties = _.extend(relations[rel].props, {
+          members: relations[rel].members
+        }, relations[rel].tags, {
+          relations: relationMembers[rel]
+        }, {
+          _osmlint: osmlint
+        });
+        wstream.write(JSON.stringify(line) + '\n');
+      }
     }
-    wstream.end();
   });
 
   handlerA.end();
   handlerB.end();
   handlerC.end();
+  wstream.end();
+  callback();
 };

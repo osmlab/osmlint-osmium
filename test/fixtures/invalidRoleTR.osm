@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+  <node id='49460672' timestamp='2015-06-04T17:29:26Z' uid='2815098' user='clairehhlin' version='4' changeset='31725639' lat='32.7829153' lon='-116.9798824' />
+  <node id='295327521' timestamp='2011-05-20T02:15:01Z' uid='238349' user='evil saltine' version='2' changeset='8194817' lat='32.7811675' lon='-116.9815302' />
+  <node id='296681020' timestamp='2011-05-20T02:14:55Z' uid='238349' user='evil saltine' version='2' changeset='8194817' lat='32.7813556' lon='-116.9812733' />
+  <node id='296681021' timestamp='2011-05-20T02:15:08Z' uid='238349' user='evil saltine' version='2' changeset='8194817' lat='32.7817921' lon='-116.9807308' />
+  <node id='296681022' timestamp='2011-05-20T02:15:17Z' uid='238349' user='evil saltine' version='2' changeset='8194817' lat='32.7822288' lon='-116.9801839' />
+  <node id='296681023' timestamp='2011-05-20T02:15:28Z' uid='238349' user='evil saltine' version='2' changeset='8194817' lat='32.7826938' lon='-116.9796054' />
+  <node id='1292494334' timestamp='2011-05-20T02:14:42Z' uid='238349' user='evil saltine' version='1' changeset='8194817' lat='32.7829026' lon='-116.9793861' />
+  <node id='1292494370' timestamp='2011-05-20T02:14:44Z' uid='238349' user='evil saltine' version='1' changeset='8194817' lat='32.782468' lon='-116.9798862' />
+  <node id='1292494523' timestamp='2011-05-20T02:14:51Z' uid='238349' user='evil saltine' version='1' changeset='8194817' lat='32.7815706' lon='-116.9810102' />
+  <node id='1292494533' timestamp='2011-05-20T02:14:51Z' uid='238349' user='evil saltine' version='1' changeset='8194817' lat='32.781997' lon='-116.980473' />
+  <node id='1921850177' timestamp='2012-09-19T13:04:40Z' uid='207745' user='NE2' version='1' changeset='13169988' lat='32.7829492' lon='-116.9788548' />
+  <node id='2949835682' timestamp='2014-07-05T20:43:10Z' uid='296869' user='Zian Choy' version='1' changeset='23973378' lat='32.7830408' lon='-116.9792559'>
+    <tag k='highway' v='crossing' />
+  </node>
+  <node id='3572571494' timestamp='2015-06-04T17:29:24Z' uid='2815098' user='clairehhlin' version='1' changeset='31725639' lat='32.782927' lon='-116.9798298' />
+  <node id='3572571496' timestamp='2015-06-04T17:29:24Z' uid='2815098' user='clairehhlin' version='1' changeset='31725639' lat='32.7830432' lon='-116.9796101' />
+  <node id='3572571497' timestamp='2015-06-04T17:29:24Z' uid='2815098' user='clairehhlin' version='1' changeset='31725639' lat='32.783111' lon='-116.9794048' />
+  <node id='3572571498' timestamp='2015-06-04T17:29:24Z' uid='2815098' user='clairehhlin' version='1' changeset='31725639' lat='32.7831193' lon='-116.9792747' />
+  <node id='4981737311' timestamp='2017-07-20T04:59:52Z' uid='202256' user='Telecas' version='1' changeset='50422359' lat='32.7831246' lon='-116.9791769' />
+  <way id='5954446' timestamp='2017-07-20T04:59:53Z' uid='202256' user='Telecas' version='8' changeset='50422359'>
+    <nd ref='295327521' />
+    <nd ref='296681020' />
+    <nd ref='1292494523' />
+    <nd ref='296681021' />
+    <nd ref='1292494533' />
+    <nd ref='296681022' />
+    <nd ref='1292494370' />
+    <nd ref='296681023' />
+    <nd ref='1292494334' />
+    <nd ref='2949835682' />
+    <nd ref='4981737311' />
+    <tag k='bicycle' v='no' />
+    <tag k='destination' v='West Chase Avenue' />
+    <tag k='highway' v='motorway_link' />
+    <tag k='oneway' v='yes' />
+    <tag k='tiger:cfcc' v='A63' />
+    <tag k='tiger:county' v='San Diego, CA' />
+  </way>
+  <way id='291518639' timestamp='2017-07-20T04:59:53Z' uid='202256' user='Telecas' version='2' changeset='50422359'>
+    <nd ref='4981737311' />
+    <nd ref='1921850177' />
+    <tag k='highway' v='secondary' />
+    <tag k='name' v='West Chase Avenue' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='San Diego, CA' />
+    <tag k='tiger:name_base' v='Chase' />
+    <tag k='tiger:name_direction_prefix' v='W' />
+    <tag k='tiger:name_type' v='Ave' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='351474461' timestamp='2017-07-20T04:59:53Z' uid='202256' user='Telecas' version='2' changeset='50422359'>
+    <nd ref='49460672' />
+    <nd ref='3572571494' />
+    <nd ref='3572571496' />
+    <nd ref='3572571497' />
+    <nd ref='3572571498' />
+    <nd ref='4981737311' />
+    <tag k='highway' v='secondary' />
+    <tag k='name' v='El Cajon Boulevard' />
+    <tag k='oneway' v='yes' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='San Diego, CA' />
+    <tag k='tiger:name_base' v='El Cajon' />
+    <tag k='tiger:name_type' v='Blvd' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <relation id='3871355' timestamp='2017-07-20T04:59:54Z' uid='202256' user='Telecas' version='3' changeset='50422359'>
+    <member type='way' ref='5954446' role='from' />
+    <member type='node' ref='4981737311' role='via' />
+    <member type='way' ref='291518639' role='to' />
+    <member type='way' ref='351474461' role='' />
+    <tag k='restriction' v='no_right_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+</osm>
