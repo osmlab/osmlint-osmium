@@ -37,6 +37,8 @@ var usage = function() {
     }
   }
 
-  validator.apply(null, [opts].concat(argv._.slice(1)));
+  validator.apply(null, [opts].concat(argv._.slice(1)).concat(function() {
+    console.log('finish');
+  }));
 
 })();
