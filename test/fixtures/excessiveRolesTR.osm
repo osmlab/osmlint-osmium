@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+  <node id='110625688' timestamp='2017-07-21T05:19:45Z' uid='30521' user='dufekin' version='5' changeset='50447484' lat='21.3440249' lon='-157.8936078' />
+  <node id='523575911' timestamp='2017-07-21T05:19:45Z' uid='30521' user='dufekin' version='3' changeset='50447484' lat='21.3434312' lon='-157.8917305' />
+  <node id='523575976' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='2' changeset='50447484' lat='21.3439971' lon='-157.8928955' />
+  <node id='523575977' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='2' changeset='50447484' lat='21.3439338' lon='-157.8926477' />
+  <node id='523576158' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='3' changeset='50447484' lat='21.3439866' lon='-157.8916947' />
+  <node id='523576159' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='2' changeset='50447484' lat='21.3440188' lon='-157.8917464' />
+  <node id='523576160' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='2' changeset='50447484' lat='21.3441661' lon='-157.892087' />
+  <node id='523576161' timestamp='2009-10-07T03:16:34Z' uid='28775' user='StellanL' version='1' changeset='2767067' lat='21.3442239' lon='-157.8924398' />
+  <node id='523576162' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='2' changeset='50447484' lat='21.3442252' lon='-157.8926693' />
+  <node id='523576163' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='2' changeset='50447484' lat='21.3441891' lon='-157.8928849' />
+  <node id='4984174359' timestamp='2017-07-21T05:19:43Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3440012' lon='-157.8930927' />
+  <node id='4984174361' timestamp='2017-07-21T05:19:43Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3436422' lon='-157.8921483' />
+  <node id='4984174376' timestamp='2017-07-21T05:19:43Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3438426' lon='-157.8924705' />
+  <node id='4984174379' timestamp='2017-07-21T05:19:43Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3439983' lon='-157.8934513' />
+  <node id='4984174384' timestamp='2017-07-21T05:19:43Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3439732' lon='-157.8927648' />
+  <node id='4984174399' timestamp='2017-07-21T05:19:43Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3441104' lon='-157.8932374' />
+  <node id='4984174419' timestamp='2017-07-21T05:19:44Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3440794' lon='-157.8918613' />
+  <node id='4984174427' timestamp='2017-07-21T05:19:44Z' uid='30521' user='dufekin' version='1' changeset='50447484' lat='21.3441986' lon='-157.8922355' />
+  <way id='42119912' timestamp='2017-07-21T05:19:48Z' uid='30521' user='dufekin' version='5' changeset='50447484'>
+    <nd ref='110625688' />
+    <nd ref='4984174379' />
+    <nd ref='4984174359' />
+    <nd ref='523575976' />
+    <nd ref='4984174384' />
+    <nd ref='523575977' />
+    <nd ref='4984174376' />
+    <nd ref='4984174361' />
+    <nd ref='523575911' />
+    <tag k='highway' v='motorway_link' />
+    <tag k='oneway' v='yes' />
+  </way>
+  <way id='42120193' timestamp='2017-07-21T05:19:46Z' uid='30521' user='dufekin' version='4' changeset='50447484'>
+    <nd ref='523576158' />
+    <nd ref='523576159' />
+    <nd ref='4984174419' />
+    <nd ref='523576160' />
+    <nd ref='4984174427' />
+    <nd ref='523576161' />
+    <nd ref='523576162' />
+    <nd ref='523576163' />
+    <nd ref='4984174399' />
+    <tag k='bridge' v='yes' />
+    <tag k='highway' v='tertiary' />
+    <tag k='lanes' v='1' />
+    <tag k='layer' v='1' />
+    <tag k='name' v='Kikowaena Street' />
+    <tag k='oneway' v='yes' />
+    <tag k='surface' v='asphalt' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Honolulu, HI' />
+    <tag k='tiger:name_base' v='Kikowaena' />
+    <tag k='tiger:name_type' v='St' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <way id='509137236' timestamp='2017-07-21T05:19:44Z' uid='30521' user='dufekin' version='1' changeset='50447484'>
+    <nd ref='4984174399' />
+    <nd ref='110625688' />
+    <tag k='highway' v='tertiary' />
+    <tag k='lanes' v='1' />
+    <tag k='name' v='Kikowaena Street' />
+    <tag k='oneway' v='yes' />
+    <tag k='surface' v='asphalt' />
+    <tag k='tiger:cfcc' v='A41' />
+    <tag k='tiger:county' v='Honolulu, HI' />
+    <tag k='tiger:name_base' v='Kikowaena' />
+    <tag k='tiger:name_type' v='St' />
+    <tag k='tiger:reviewed' v='no' />
+  </way>
+  <relation id='6502134' timestamp='2017-07-21T05:19:53Z' uid='30521' user='dufekin' version='2' changeset='50447484'>
+    <member type='way' ref='42120193' role='from' />
+    <member type='way' ref='509137236' role='from' />
+    <member type='node' ref='110625688' role='via' />
+    <member type='way' ref='42119912' role='to' />
+    <tag k='restriction' v='no_u_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+</osm>
