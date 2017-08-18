@@ -4,4 +4,4 @@ Detect missing `type=restriction` or `restriction=*` tags in the relation
 
 ### usage
 
-`osmlinto missingroletr california-latest.osm.pbf output.json`
+`osmlinto missingtyperestrictiontr california-latest.osm.pbf output.json`
