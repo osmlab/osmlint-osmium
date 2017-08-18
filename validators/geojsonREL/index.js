@@ -1,79 +1,62 @@
 'use strict';
 var fs = require('fs');
 var osmium = require('osmium');
-var turf = require('@turf/turf');
-var _ = require('underscore');
+var util = require('../util');
 
 module.exports = function(tags, pbfFile, outputFile, callback) {
   var wstream = fs.createWriteStream(outputFile);
-  var relationsMemb = {};
+  var relationMembers = {};
   var nodes = {};
   var ways = {};
   var relations = {};
   var handlerA = new osmium.Handler();
+
   handlerA.on('relation', function(relation) {
-    if (checkTags(relation.tags(), tags)) {
+    if (util.checkTags(relation.tags(), tags)) {
+      var relationFeature = util.relationFeature(relation);
+      relations[relation.id] = relationFeature;
       var members = relation.members();
-      relations[relation.id] = _.extend({
-        '@id': relation.id,
-        '@version': relation.version,
-        '@changeset': relation.changeset,
-        '@uid': relation.uid,
-        '@user': relation.user
-      }, {
-        tags: relation.tags()
-      }, {
-        members: members
-      });
       for (var i = 0; i < members.length; i++) {
-        members[i].relation = relation.id;
-        if (members[i].type === 'n') {
-          if (nodes[members[i].ref]) {
-            nodes[members[i].ref].push(members[i]);
+        var member = members[i];
+        member.idrel = relation.id;
+
+        //Check nodes
+        if (member.type === 'n') {
+          if (nodes[member.ref]) {
+            nodes[member.ref].push(member);
           } else {
-            nodes[members[i].ref] = [members[i]];
+            nodes[member.ref] = [member];
           }
         }
-        if (members[i].type === 'w') {
-          if (ways[members[i].ref]) {
-            ways[members[i].ref].push(members[i]);
+        //Check ways
+        if (member.type === 'w') {
+          if (ways[member.ref]) {
+            ways[member.ref].push(member);
           } else {
-            ways[members[i].ref] = [members[i]];
+            ways[member.ref] = [member];
           }
         }
       }
     }
   });
+
+
   var reader = new osmium.BasicReader(pbfFile);
   osmium.apply(reader, handlerA);
 
   var handlerB = new osmium.Handler();
   handlerB.on('node', function(node) {
     if (nodes[node.id]) {
-      var relationsNode = nodes[node.id];
-      for (var n = 0; n < relationsNode.length; n++) {
-        var properties = _.extend({
-            '@id': node.id,
-            '@version': node.version,
-            '@changeset': node.changeset,
-            '@uid': node.uid,
-            '@user': node.user
-          }, node.tags(), relationsNode[n], {
-            relationId: relationsNode[n].relation
-          }, {
-            relation: relations[relationsNode[n].relation]
-          },
-          relations[relationsNode[n].relation].tags);
-
-        var feature = {
-          type: 'Feature',
-          properties: properties,
-          geometry: node.geojson()
-        };
-        if (relationsMemb[properties.relation]) {
-          relationsMemb[properties.relation].push(feature);
+      //one node can belong to many relations
+      var nodeRols = nodes[node.id];
+      for (var n = 0; n < nodeRols.length; n++) {
+        var nodeRel = nodeRols[n];
+        var nodeFeature = util.nodeFeature(node, relations[nodeRel.idrel], nodeRel);
+        console.log(JSON.stringify(nodeFeature) + '\n');
+        if (relationMembers[nodeFeature.properties['@idrel']]) {
+          relationMembers[nodeFeature.properties['@idrel']].push(nodeFeature);
         } else {
-          relationsMemb[properties.relation] = [feature];
+          relationMembers[nodeFeature.properties['@idrel']] = [nodeFeature];
         }
       }
     }
@@ -85,28 +68,15 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
   var handlerC = new osmium.Handler();
   handlerC.on('way', function(way) {
     if (ways[way.id]) {
-      var relationsWay = ways[way.id];
-      for (var m = 0; m < relationsWay.length; m++) {
-        var properties = _.extend({
-          '@id': way.id,
-          '@version': way.version,
-          '@changeset': way.changeset,
-          '@uid': way.uid,
-          '@user': way.user
-        }, way.tags(), relationsWay[m], {
-          relationId: relationsWay[m].relation
-        }, {
-          relation: relations[relationsWay[m].relation]
-        }, relations[relationsWay[m].relation].tags);
-        var feature = {
-          type: 'Feature',
-          properties: properties,
-          geometry: way.geojson()
-        };
-        if (relationsMemb[properties.relation]) {
-          relationsMemb[properties.relation].push(feature);
+      //one way can belong to many relations
+      var wayRols = ways[way.id];
+      for (var m = 0; m < wayRols.length; m++) {
+        var wayRol = wayRols[m];
+        var wayFeature = util.wayFeature(way, relations[wayRol.idrel], wayRol);
+        if (relationMembers[wayFeature.properties['@idrel']]) {
+          relationMembers[wayFeature.properties['@idrel']].push(wayFeature);
         } else {
-          relationsMemb[properties.relation] = [feature];
+          relationMembers[wayFeature.properties['@idrel']] = [wayFeature];
         }
       }
     }
@@ -115,12 +85,13 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
   reader = new osmium.Reader(pbfFile);
   var locationHandler = new osmium.LocationHandler();
   osmium.apply(reader, locationHandler, handlerC);
+
   handlerC.on('done', function() {
-    for (var rel in relationsMemb) {
-      if (relationsMemb[rel].length > 0) {
+    for (var rel in relationMembers) {
+      if (relationMembers[rel].length > 0) {
         var fc = {
           type: 'FeatureCollection',
-          features: relationsMemb[rel]
+          features: relationMembers[rel]
         };
         wstream.write(JSON.stringify(fc) + '\n');
       }
@@ -131,17 +102,5 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
   handlerB.end();
   handlerC.end();
   wstream.end();
+  callback();
 };
-
-function checkTags(tags, valueTags) {
-  var match = 0;
-  _.each(valueTags, function(v, k) {
-    if (tags[k] === v || (tags[k] && v === '*')) {
-      match++;
-    }
-  });
-  if (match === _.size(valueTags)) {
-    return true
-  }
-  return false;
-}
