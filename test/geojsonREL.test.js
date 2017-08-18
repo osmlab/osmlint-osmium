@@ -7,7 +7,7 @@ var fs = require('fs');
 
 var processors = require('../index.js');
 var osm = path.join(__dirname, '/fixtures/nouturn.osm');
-var outputFile = path.join(__dirname, '/fixtures/nouturn.json');
+var outputFile = path.join(__dirname, '/fixtures/output.json');
 var tags = {
   type: 'restriction'
 };
