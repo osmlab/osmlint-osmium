@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' generator='JOSM'>
+  <node id='2174335503' timestamp='2017-07-19T16:36:46Z' uid='4351550' user='MyWayOrNoHighway' version='3' changeset='50410897' lat='-12.9353978' lon='-74.2445442' />
+  <node id='2174335512' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='4' changeset='51150044' lat='-12.9362851' lon='-74.2456002' />
+  <node id='2174335551' timestamp='2017-07-19T13:57:58Z' uid='4351550' user='MyWayOrNoHighway' version='3' changeset='50406549' lat='-12.9391902' lon='-74.2490575' />
+  <node id='2267481117' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='3' changeset='51150044' lat='-12.9322466' lon='-74.2526919' />
+  <node id='2267481126' timestamp='2017-07-14T00:54:45Z' uid='2547662' user='johnny_1982' version='3' changeset='50270996' lat='-12.933021' lon='-74.2522341' />
+  <node id='2267481131' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='4' changeset='51150044' lat='-12.9332043' lon='-74.2530825' />
+  <node id='2267481153' timestamp='2017-07-19T16:16:18Z' uid='4351550' user='MyWayOrNoHighway' version='5' changeset='50410499' lat='-12.9341711' lon='-74.2523821' />
+  <node id='2267481180' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='5' changeset='51150044' lat='-12.9350783' lon='-74.2516244' />
+  <node id='2267481344' timestamp='2017-08-15T20:03:18Z' uid='5027347' user='zwaygp' version='5' changeset='51151201' lat='-12.9387079' lon='-74.2484449' />
+  <node id='2267481356' timestamp='2015-09-08T19:54:03Z' uid='2593828' user='pizza4days' version='2' changeset='33892386' lat='-12.9389894' lon='-74.2448872' />
+  <node id='2267481371' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='5' changeset='51150044' lat='-12.9394915' lon='-74.245509' />
+  <node id='2267499511' timestamp='2017-07-14T01:03:11Z' uid='2547662' user='johnny_1982' version='3' changeset='50271052' lat='-12.932437' lon='-74.2511613' />
+  <node id='2267499649' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='4' changeset='51150044' lat='-12.9381527' lon='-74.2478227' />
+  <node id='2267499656' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='3' changeset='51150044' lat='-12.9387985' lon='-74.2472613' />
+  <node id='2267499663' timestamp='2015-09-08T19:54:06Z' uid='2593828' user='pizza4days' version='2' changeset='33892386' lat='-12.939395' lon='-74.2467206' />
+  <node id='2267499672' timestamp='2017-08-15T19:21:45Z' uid='5027347' user='zwaygp' version='3' changeset='51150044' lat='-12.9400193' lon='-74.2461628' />
+  <node id='2267499705' timestamp='2015-09-08T19:54:07Z' uid='2593828' user='pizza4days' version='2' changeset='33892386' lat='-12.9406534' lon='-74.2456232' />
+  <node id='3142840491' timestamp='2017-07-14T02:26:17Z' uid='2547662' user='johnny_1982' version='2' changeset='50271615' lat='-12.9238396' lon='-74.2439926' />
+  <node id='3142840545' timestamp='2017-08-22T03:44:33Z' uid='6076962' user='osmperu' version='3' changeset='51324127' lat='-12.9240124' lon='-74.2438139' />
+  <node id='3142840605' timestamp='2014-10-21T23:29:28Z' uid='26741' user='Ledif' version='1' changeset='26245574' lat='-12.9240624' lon='-74.2438889' />
+  <node id='4253729977' timestamp='2017-07-18T21:45:48Z' uid='4351550' user='MyWayOrNoHighway' version='2' changeset='50390572' lat='-12.9269953' lon='-74.2603137' />
+  <node id='4253729979' timestamp='2016-06-20T02:42:04Z' uid='510836' user='Rub21' version='1' changeset='40147404' lat='-12.9275337' lon='-74.2598439' />
+  <node id='4969409846' timestamp='2017-07-14T02:26:16Z' uid='2547662' user='johnny_1982' version='1' changeset='50271615' lat='-12.9238936' lon='-74.2438798' />
+  <node id='4969421717' timestamp='2017-07-14T02:43:32Z' uid='2547662' user='johnny_1982' version='1' changeset='50271770' lat='-12.9410706' lon='-74.2452449' />
+  <node id='4978215889' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.928033' lon='-74.258818' />
+  <node id='4978215890' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9278238' lon='-74.2590246' />
+  <node id='4978215891' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9276748' lon='-74.2590943' />
+  <node id='4978215892' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9274474' lon='-74.259207' />
+  <node id='4978215893' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9272853' lon='-74.2592928' />
+  <node id='4978215894' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9271363' lon='-74.259392' />
+  <node id='4978215895' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9268775' lon='-74.2596227' />
+  <node id='4978215896' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9266219' lon='-74.2598921' />
+  <node id='4978215897' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9284199' lon='-74.2590889' />
+  <node id='4978215898' timestamp='2017-07-18T21:45:45Z' uid='4351550' user='MyWayOrNoHighway' version='1' changeset='50390572' lat='-12.9279193' lon='-74.2595208' />
+  <node id='5049920798' timestamp='2017-08-22T03:44:33Z' uid='6076962' user='osmperu' version='1' changeset='51324127' lat='-12.9239966' lon='-74.2440391' />
+  <node id='5049920799' timestamp='2017-08-22T03:44:33Z' uid='6076962' user='osmperu' version='1' changeset='51324127' lat='-12.9240397' lon='-74.2438171' />
+  <way id='217481724' timestamp='2017-08-22T01:55:50Z' uid='6076962' user='osmperu' version='6' changeset='51323352'>
+    <nd ref='2267481356' />
+    <nd ref='2267481371' />
+    <nd ref='2267499672' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Jirón Bolognessi' />
+    <tag k='oneway' v='yes' />
+    <tag k='surface' v='concrete' />
+  </way>
+  <way id='217481784' timestamp='2017-08-22T02:31:45Z' uid='6076962' user='osmperu' version='3' changeset='51323599'>
+    <nd ref='2267481180' />
+    <nd ref='2267481153' />
+    <nd ref='2267481131' />
+    <tag k='highway' v='residential' />
+  </way>
+  <way id='217483644' timestamp='2017-08-22T01:55:50Z' uid='6076962' user='osmperu' version='7' changeset='51323352'>
+    <nd ref='2267499649' />
+    <nd ref='2267499656' />
+    <nd ref='2267499663' />
+    <nd ref='2267499672' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Jirón Libertad' />
+  </way>
+  <way id='217483680' timestamp='2017-08-22T02:31:45Z' uid='6076962' user='osmperu' version='5' changeset='51323599'>
+    <nd ref='2267481126' />
+    <nd ref='2267499511' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Avenida Centenario' />
+    <tag k='oneway' v='-1' />
+    <tag k='surface' v='asphalt' />
+  </way>
+  <way id='426052540' timestamp='2017-08-22T02:58:32Z' uid='6076962' user='osmperu' version='3' changeset='51323786'>
+    <nd ref='4978215897' />
+    <nd ref='4978215898' />
+    <nd ref='4253729979' />
+    <nd ref='4253729977' />
+    <tag k='highway' v='residential' />
+    <tag k='oneway' v='yes' />
+  </way>
+  <way id='508522466' timestamp='2017-08-22T02:58:32Z' uid='6076962' user='osmperu' version='2' changeset='51323786'>
+    <nd ref='4978215889' />
+    <nd ref='4978215890' />
+    <nd ref='4978215891' />
+    <nd ref='4978215892' />
+    <nd ref='4978215893' />
+    <nd ref='4978215894' />
+    <nd ref='4978215895' />
+    <nd ref='4978215896' />
+    <tag k='highway' v='residential' />
+    <tag k='oneway' v='yes' />
+  </way>
+  <way id='517482794' timestamp='2017-08-22T01:35:51Z' uid='6076962' user='osmperu' version='1' changeset='51323209'>
+    <nd ref='2174335551' />
+    <nd ref='2267481344' />
+    <nd ref='2267499649' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Jirón Arica' />
+    <tag k='oneway' v='yes' />
+    <tag k='surface' v='concrete' />
+  </way>
+  <way id='517483984' timestamp='2017-08-22T01:55:50Z' uid='6076962' user='osmperu' version='1' changeset='51323352'>
+    <nd ref='2267499672' />
+    <nd ref='2267499705' />
+    <nd ref='4969421717' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Jirón Libertad' />
+  </way>
+  <way id='517488363' timestamp='2017-08-22T02:31:44Z' uid='6076962' user='osmperu' version='1' changeset='51323599'>
+    <nd ref='2267481117' />
+    <nd ref='2267481126' />
+    <tag k='highway' v='unclassified' />
+    <tag k='name' v='Jirón Miguel Untiveros' />
+    <tag k='surface' v='asphalt' />
+  </way>
+  <way id='517488366' timestamp='2017-08-22T02:31:44Z' uid='6076962' user='osmperu' version='1' changeset='51323599'>
+    <nd ref='2267481131' />
+    <nd ref='2267481126' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Avenida Centenario' />
+    <tag k='oneway' v='-1' />
+    <tag k='surface' v='asphalt' />
+  </way>
+  <way id='517488843' timestamp='2017-08-22T02:39:45Z' uid='6076962' user='osmperu' version='1' changeset='51323655'>
+    <nd ref='2174335512' />
+    <nd ref='2174335503' />
+    <tag k='highway' v='residential' />
+    <tag k='name' v='Jirón Arica' />
+    <tag k='oneway' v='yes' />
+    <tag k='surface' v='concrete' />
+  </way>
+  <way id='517489650' timestamp='2017-08-22T02:58:32Z' uid='6076962' user='osmperu' version='1' changeset='51323786'>
+    <nd ref='4978215896' />
+    <nd ref='4253729977' />
+    <tag k='highway' v='residential' />
+  </way>
+  <way id='517491570' timestamp='2017-08-22T03:44:33Z' uid='6076962' user='osmperu' version='1' changeset='51324127'>
+    <nd ref='5049920798' />
+    <nd ref='3142840605' />
+    <nd ref='5049920799' />
+    <tag k='highway' v='unclassified' />
+    <tag k='oneway' v='yes' />
+  </way>
+  <way id='517491571' timestamp='2017-08-22T03:44:33Z' uid='6076962' user='osmperu' version='1' changeset='51324127'>
+    <nd ref='3142840491' />
+    <nd ref='4969409846' />
+    <nd ref='3142840545' />
+    <nd ref='5049920799' />
+    <tag k='highway' v='unclassified' />
+    <tag k='oneway' v='yes' />
+  </way>
+  <relation id='7496343' timestamp='2017-08-22T01:55:51Z' uid='6076962' user='osmperu' version='2' changeset='51323352'>
+    <member type='node' ref='2267499649' role='via' />
+    <member type='way' ref='517482794' role='to' />
+    <member type='way' ref='217483644' role='from' />
+    <tag k='restriction' v='no_left_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='7496354' timestamp='2017-08-22T01:55:50Z' uid='6076962' user='osmperu' version='1' changeset='51323352'>
+    <member type='node' ref='2267499672' role='via' />
+    <member type='way' ref='517483984' role='from' />
+    <member type='way' ref='217481724' role='to' />
+    <tag k='restriction' v='no_right_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='7496366' timestamp='2017-08-22T02:31:44Z' uid='6076962' user='osmperu' version='1' changeset='51323599'>
+    <member type='way' ref='217483680' role='to' />
+    <member type='node' ref='2267481126' role='via' />
+    <member type='way' ref='517488363' role='from' />
+    <tag k='restriction' v='no_left_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='7496367' timestamp='2017-08-22T02:31:45Z' uid='6076962' user='osmperu' version='1' changeset='51323599'>
+    <member type='node' ref='2267481131' role='via' />
+    <member type='way' ref='217481784' role='from' />
+    <member type='way' ref='517488366' role='to' />
+    <tag k='restriction' v='no_right_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='7496369' timestamp='2017-08-22T02:39:45Z' uid='6076962' user='osmperu' version='1' changeset='51323655'>
+    <member type='way' ref='517488843' role='to' />
+    <member type='node' ref='2174335503' role='via' />
+    <member type='way' ref='517488843' role='from' />
+    <tag k='restriction' v='no_u_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='7496383' timestamp='2017-08-22T02:58:32Z' uid='6076962' user='osmperu' version='1' changeset='51323786'>
+    <member type='way' ref='426052540' role='from' />
+    <member type='way' ref='517489650' role='via' />
+    <member type='way' ref='508522466' role='to' />
+    <tag k='restriction' v='no_u_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+  <relation id='7496396' timestamp='2017-08-22T03:46:18Z' uid='6076962' user='osmperu' version='2' changeset='51324144'>
+    <member type='node' ref='5049920799' role='via' />
+    <member type='way' ref='517491571' role='from' />
+    <member type='way' ref='517491570' role='to' />
+    <tag k='restriction' v='no_u_turn' />
+    <tag k='type' v='restriction' />
+  </relation>
+</osm>
