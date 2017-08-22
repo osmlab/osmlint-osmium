@@ -100,63 +100,66 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
         var relTags = relations[rel].tags;
         var rMenbers = util.sortRoles(relationMembers[rel]);
         var from = rMenbers.from[0];
-        // var via = rMenbers.via[0];
+        var via = rMenbers.via[0];
         var to = rMenbers.to[0];
         var simFrom = util.simpleRole(rMenbers.from);
         var simVia = util.simpleRole(rMenbers.via);
         var simTo = util.simpleRole(rMenbers.to);
         var flag = false;
 
-        var restriction = (
-          relTags.restriction === 'no_left_turn' ||
-          (relTags['restriction:conditional'] && relTags['restriction:conditional'].indexOf('no_left_turn') > -1) ||
-          relTags.restriction === 'no_right_turn' ||
-          (relTags['restriction:conditional'] && relTags['restriction:conditional'].indexOf('no_right_turn') > -1)
-        );
+        if (from && via && to) {
+          var restriction = (
+            relTags.restriction === 'no_left_turn' ||
+            (relTags['restriction:conditional'] && relTags['restriction:conditional'].indexOf('no_left_turn') > -1) ||
+            relTags.restriction === 'no_right_turn' ||
+            (relTags['restriction:conditional'] && relTags['restriction:conditional'].indexOf('no_right_turn') > -1)
+          );
 
-        //Case1: When the "to" roles has oneway  and the ending coordinate  is equal  to via
-        if (restriction &&
-          simVia.type === 'node' &&
-          _.intersection(simTo.end, simVia.start).length === 2 &&
-          to.properties.oneway &&
-          (to.properties.oneway === 'yes' || to.properties.oneway === '1')) {
-          flag = true;
-        }
-        //Case2: When the "to" roles has oneway  and the start coordinate  is equal to via
-        if (restriction &&
-          simVia.type === 'node' &&
-          _.intersection(simTo.start, simVia.start).length === 2 &&
-          (to.properties.oneway &&
-            to.properties.oneway === '-1')) {
-          flag = true;
-        }
+          //Case1: When the "to" roles has oneway  and the ending coordinate  is equal  to via
+          if (restriction &&
+            simVia.type === 'node' &&
+            _.intersection(simTo.end, simVia.start).length === 2 &&
+            to.properties.oneway &&
+            (to.properties.oneway === 'yes' || to.properties.oneway === '1')) {
+            flag = true;
+          }
+          //Case2: When the "to" roles has oneway  and the start coordinate  is equal to via
+          if (restriction &&
+            simVia.type === 'node' &&
+            _.intersection(simTo.start, simVia.start).length === 2 &&
+            (to.properties.oneway &&
+              to.properties.oneway === '-1')) {
+            flag = true;
+          }
 
-        restriction = (
-          relTags.restriction === 'no_u_turn' ||
-          (relTags['restriction:conditional'] && relTags['restriction:conditional'].indexOf('no_u_turn') > -1)
-        );
-        //Case3: When a oneway road has no_u_turn via=node
-        if (restriction &&
-          simVia.type === 'node' &&
-          from.properties['@id'] === to.properties['@id']) {
-          flag = true;
-        }
-        //Case4: When a oneway road has no_u_turn via=line
-        var viaCoords = _.unique(_.flatten([simVia.start, simVia.end]));
-        if (restriction &&
-          simVia.type === 'line' &&
-          (_.intersection(simFrom.end, viaCoords).length === 2 && _.intersection(simTo.end, viaCoords).length === 2) &&
-          (from.properties.oneway && (from.properties.oneway === 'yes' || from.properties.oneway === '1')) &&
-          (to.properties.oneway && (to.properties.oneway === 'yes' || from.properties.oneway === '1'))) {
-          flag = true;
-        }
-        //Case5: When a oneway road has no_u_turn via=node
-        if (restriction &&
-          simVia.type === 'node' &&
-          (_.intersection(simFrom.end, viaCoords).length === 2 && _.intersection(simTo.end, viaCoords).length === 2) &&
-          (from.properties.oneway && (from.properties.oneway === 'yes' || from.properties.oneway === '1')) &&
-          (to.properties.oneway && (to.properties.oneway === 'yes' || from.properties.oneway === '1'))) {
-          flag = true;
+          restriction = (
+            relTags.restriction === 'no_u_turn' ||
+            (relTags['restriction:conditional'] && relTags['restriction:conditional'].indexOf('no_u_turn') > -1)
+          );
+          //Case3: When a oneway road has no_u_turn via=node
+          if (restriction &&
+            simVia.type === 'node' &&
+            from.properties['@id'] === to.properties['@id'] &&
+            (from.properties.oneway && (from.properties.oneway === 'yes' || from.properties.oneway === '1' || from.properties.oneway === '-1'))) {
+            flag = true;
+          }
+          //Case4: When a oneway road has no_u_turn via=line
+          var viaCoords = _.unique(_.flatten([simVia.start, simVia.end]));
+          if (restriction &&
+            simVia.type === 'line' &&
+            (_.intersection(simFrom.end, viaCoords).length === 2 && _.intersection(simTo.end, viaCoords).length === 2) &&
+            (from.properties.oneway && (from.properties.oneway === 'yes' || from.properties.oneway === '1')) &&
+            (to.properties.oneway && (to.properties.oneway === 'yes' || from.properties.oneway === '1'))) {
+            flag = true;
+          }
+          //Case5: When a oneway road has no_u_turn via=node
+          if (restriction &&
+            simVia.type === 'node' &&
+            (_.intersection(simFrom.end, viaCoords).length === 2 && _.intersection(simTo.end, viaCoords).length === 2) &&
+            (from.properties.oneway && (from.properties.oneway === 'yes' || from.properties.oneway === '1')) &&
+            (to.properties.oneway && (to.properties.oneway === 'yes' || from.properties.oneway === '1'))) {
+            flag = true;
+          }
         }
 
         if (flag) {
