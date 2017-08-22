@@ -100,7 +100,7 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
         var relTags = relations[rel].tags;
         var rMenbers = util.sortRoles(relationMembers[rel]);
         var from = rMenbers.from[0];
-        var via = rMenbers.via[0];
+        // var via = rMenbers.via[0];
         var to = rMenbers.to[0];
         var simFrom = util.simpleRole(rMenbers.from);
         var simVia = util.simpleRole(rMenbers.via);
@@ -116,16 +116,16 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
 
         //Case1: When the "to" roles has oneway  and the ending coordinate  is equal  to via
         if (restriction &&
-          simVia.type == 'node' &&
-          _.intersection(simTo.end, simVia.start).length == 2 &&
+          simVia.type === 'node' &&
+          _.intersection(simTo.end, simVia.start).length === 2 &&
           to.properties.oneway &&
           (to.properties.oneway === 'yes' || to.properties.oneway === '1')) {
           flag = true;
         }
         //Case2: When the "to" roles has oneway  and the start coordinate  is equal to via
         if (restriction &&
-          simVia.type == 'node' &&
-          _.intersection(simTo.start, simVia.start).length == 2 &&
+          simVia.type === 'node' &&
+          _.intersection(simTo.start, simVia.start).length === 2 &&
           (to.properties.oneway &&
             to.properties.oneway === '-1')) {
           flag = true;
