@@ -64,7 +64,7 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
       var nodeRols = nodes[node.id];
       for (var n = 0; n < nodeRols.length; n++) {
         var nodeRel = nodeRols[n];
-        var nodeFeature = util.nodeFeature(node, relations[nodeRel.idrel], nodeRel);
+        var nodeFeature = util.mergeNodeRelationFeature(node, relations[nodeRel.idrel], nodeRel);
         if (relationMembers[nodeFeature.properties['@idrel']]) {
           relationMembers[nodeFeature.properties['@idrel']].push(nodeFeature);
         } else {
@@ -84,7 +84,7 @@ module.exports = function(tags, pbfFile, outputFile, callback) {
       var wayRols = ways[way.id];
       for (var m = 0; m < wayRols.length; m++) {
         var wayRol = wayRols[m];
-        var wayFeature = util.wayFeature(way, relations[wayRol.idrel], wayRol);
+        var wayFeature = util.mergeWayRelationFeature(way, relations[wayRol.idrel], wayRol);
         if (relationMembers[wayFeature.properties['@idrel']]) {
           relationMembers[wayFeature.properties['@idrel']].push(wayFeature);
         } else {
