@@ -24,41 +24,31 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
     if (!users.hasOwnProperty(relation.user) &&
       since <= relation.timestamp_seconds_since_epoch &&
       relation.tags('type') === 'restriction') {
-      var tr = {
-        from: false,
-        to: false,
-        via: false
-      };
       var members = relation.members();
-      for (var d = 0; d < members.length; d++) {
-        tr[members[d].role] = members[d];
-      }
-      var elems = _.without(_.values(tr), false);
-      if (elems.length < 3) {
-        var relationFeature = util.relationFeature(relation);
-        relations[relation.id] = relationFeature;
-        for (var i = 0; i < members.length; i++) {
-          var member = members[i];
-          member.idrel = relation.id;
+      var relationFeature = util.relationFeature(relation);
+      relations[relation.id] = relationFeature;
+      for (var i = 0; i < members.length; i++) {
+        var member = members[i];
+        member.idrel = relation.id;
 
-          //Check nodes
-          if (member.type === 'n') {
-            if (nodes[member.ref]) {
-              nodes[member.ref].push(member);
-            } else {
-              nodes[member.ref] = [member];
-            }
+        //Check nodes
+        if (member.type === 'n') {
+          if (nodes[member.ref]) {
+            nodes[member.ref].push(member);
+          } else {
+            nodes[member.ref] = [member];
           }
-          //Check ways
-          if (member.type === 'w') {
-            if (ways[member.ref]) {
-              ways[member.ref].push(member);
-            } else {
-              ways[member.ref] = [member];
-            }
+        }
+        //Check ways
+        if (member.type === 'w') {
+          if (ways[member.ref]) {
+            ways[member.ref].push(member);
+          } else {
+            ways[member.ref] = [member];
           }
         }
       }
+
     }
   });
 
