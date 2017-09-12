@@ -30,7 +30,7 @@ Detect redundant TR's in `oneway` roads
 
 `osmlinto missingtyperestrictiontr california.osm.pbf output.json`
 
-# Turn restrictions edited by the community
+### Turn restrictions edited by the community
 
 Filter turn restrictions edited by community, we are avoiding where the Mapbox data-team users
 
