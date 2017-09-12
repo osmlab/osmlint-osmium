@@ -13,7 +13,8 @@ module.exports = function(relation) {
       '@version': relation.version,
       '@changeset': relation.changeset,
       '@uid': relation.uid,
-      '@user': relation.user
+      '@user': relation.user,
+      '@timestamp': relation.timestamp_seconds_since_epoch
     }
   }, {
     tags: relation.tags()
