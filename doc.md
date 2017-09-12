@@ -18,13 +18,13 @@ Detect turn-restriction that has more than one `from/via/to` roles
 
 `osmlinto excessiverolestr california.osm.pbf output.json`
 
-### Missing roles in turn-restriction
+### Missing type of restriction  in TR
 
 Detect missing `type=restriction` or `restriction=*` tags in the relation
 
 `osmlinto redundanttroneway california.osm.pbf output.json`
 
-### Missing roles in turn-restriction
+### Redundant TR in one way roads
 
 Detect redundant TR's in `oneway` roads
 

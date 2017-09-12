@@ -1,4 +1,4 @@
-# Missing roles in turn-restriction
+# Missing type of restriction  in TR
 
 Detect missing `type=restriction` or `restriction=*` tags in the relation
 

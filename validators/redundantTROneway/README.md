@@ -1,4 +1,4 @@
-# Missing roles in turn-restriction
+# Redundant TR in one way roads
 
 Detect redundant TR's in oneway roads
 
