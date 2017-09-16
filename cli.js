@@ -16,6 +16,7 @@ var usage = function() {
   }
 
   var validator = (function(name) {
+    // name = name.toLowerCase();
     var validators = fs.readdirSync(path.join(__dirname, '/validators/'));
     for (var i = 0; i < validators.length; i++) {
       if (validators[i].toLowerCase() === name) {
