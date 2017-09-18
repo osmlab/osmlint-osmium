@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && NODE_ENV=test tape test/*.test.js | tap-spec",
-    "lint": "./node_modules/.bin/standard validators/**/*.js test/**/*.js util/**/*.js  *.js || exit 0",
-    "fix": "./node_modules/.bin/standard --fix validators/**/*.js test/**/*.js util/**/*.js *.js || exit 0"
+    "lint": "./node_modules/.bin/standard src/**/**/*.js test/**/*.js  *.js || exit 0",
+    "fix": "./node_modules/.bin/standard --fix src/**/**/*.js test/**/*.js *.js || exit 0"
   },
   "repository": {
     "type": "git",
