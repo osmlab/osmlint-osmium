@@ -1,44 +1,43 @@
 #!/usr/bin/env node
 
-'use strict';
-var fs = require('fs');
-var argv = require('minimist')(process.argv.slice(2));
-var path = require('path');
+'use strict'
+var fs = require('fs')
+var argv = require('minimist')(process.argv.slice(2))
+var path = require('path')
 
-var usage = function() {
-  console.log('Usage: osmlinto <validator> <pbfFile> <output file>');
-  console.log('e.g: osmlinto missingroletr hawaii.osm.pbf output.json');
+var usage = function () {
+  console.log('Usage: osmlinto <validator> <pbfFile> <output file>')
+  console.log('e.g: osmlinto missingroletr hawaii.osm.pbf output.json')
 };
 
-(function() {
+(function () {
   if (argv._.length < 2) {
-    return usage();
+    return usage()
   }
 
-  var validator = (function(name) {
-    var validators = fs.readdirSync(path.join(__dirname, '/validators/'));
+  var validator = (function (name) {
+    var validators = fs.readdirSync(path.join(__dirname, '/src/validators/'))
     for (var i = 0; i < validators.length; i++) {
       if (validators[i].toLowerCase() === name) {
-        return require(path.join(__dirname, 'validators', validators[i]));
+        return require(path.join(__dirname, 'src/validators', validators[i]))
       }
     }
-    return null;
-  })(argv._[0]);
+    return null
+  })(argv._[0])
 
   if (!validator) {
-    console.error('Unknown validator "' + argv._[0] + '"');
-    return usage();
+    console.error('Unknown validator "' + argv._[0] + '"')
+    return usage()
   }
 
-  var opts = {};
+  var opts = {}
   for (var tag in argv) {
     if (tag !== '_') {
-      opts[tag] = argv[tag];
+      opts[tag] = argv[tag]
     }
   }
 
-  validator.apply(null, [opts].concat(argv._.slice(1)).concat(function() {
-    console.log('finish');
-  }));
-
-})();
+  validator.apply(null, [opts].concat(argv._.slice(1)).concat(function () {
+    console.log('finish')
+  }))
+})()

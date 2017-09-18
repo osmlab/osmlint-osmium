@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
 module.exports = {
-	'missingRoleTR': require('./validators/missingRoleTR'),
-	'invalidRoleTR': require('./validators/invalidRoleTR'),
-	'excessiveRolesTR': require('./validators/excessiveRolesTR'),
-	'missingTypeRestrictionTR': require('./validators/missingTypeRestrictionTR'),
-	'redundantTROneway': require('./validators/redundantTROneway')
-};
+  'missingRoleTR': require('./src/validators/missingRoleTR'),
+  'invalidRoleTR': require('./src/validators/invalidRoleTR'),
+  'excessiveRolesTR': require('./src/validators/excessiveRolesTR'),
+  'missingTypeRestrictionTR': require('./src/validators/missingTypeRestrictionTR'),
+  'redundantTROneway': require('./src/validators/redundantTROneway')
+}
