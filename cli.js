@@ -16,10 +16,10 @@ var usage = function () {
   }
 
   var validator = (function (name) {
-    var validators = fs.readdirSync(path.join(__dirname, '/validators/'))
+    var validators = fs.readdirSync(path.join(__dirname, '/src/validators/'))
     for (var i = 0; i < validators.length; i++) {
       if (validators[i].toLowerCase() === name) {
-        return require(path.join(__dirname, 'validators', validators[i]))
+        return require(path.join(__dirname, 'src/validators', validators[i]))
       }
     }
     return null
