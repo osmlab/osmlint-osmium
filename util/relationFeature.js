@@ -1,12 +1,12 @@
-'use strict';
-var _ = require('underscore');
+'use strict'
+var _ = require('underscore')
 
 /**
  * @param  {object} node object
  * @param  {object} realtions tag
  * @return {object} geojson feature, it include the current tags and the relation tag
  */
-module.exports = function(relation) {
+module.exports = function (relation) {
   return _.extend({
     props: {
       '@id': relation.id,
@@ -20,5 +20,5 @@ module.exports = function(relation) {
     tags: relation.tags()
   }, {
     members: relation.members()
-  });
-};
+  })
+}

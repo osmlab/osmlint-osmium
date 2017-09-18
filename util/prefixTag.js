@@ -1,13 +1,13 @@
-'use strict';
+'use strict'
 
 /**
- * @param  {object} propertties 
+ * @param  {object} propertties
  * @return {object} properties
  */
-module.exports = function(prefix, props) {
-  var newProps = {};
+module.exports = function (prefix, props) {
+  var newProps = {}
   for (var key in props) {
-    newProps[prefix + key] = props[key];
+    newProps[prefix + key] = props[key]
   }
-  return newProps;
-};
+  return newProps
+}

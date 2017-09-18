@@ -1,19 +1,19 @@
-'use strict';
-var _ = require('underscore');
+'use strict'
+var _ = require('underscore')
 
 /**
- * @param  {object} properties 
+ * @param  {object} properties
  * @return {boolean}
  */
-module.exports = function(tags, valueTags) {
-  var match = 0;
-  _.each(valueTags, function(v, k) {
+module.exports = function (tags, valueTags) {
+  var match = 0
+  _.each(valueTags, function (v, k) {
     if (tags[k] === v || (tags[k] && v === '*')) {
-      match++;
+      match++
     }
-  });
+  })
   if (match === _.size(valueTags)) {
-    return true;
+    return true
   }
-  return false;
-};
+  return false
+}
