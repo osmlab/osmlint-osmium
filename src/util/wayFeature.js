@@ -2,9 +2,12 @@
 var _ = require('underscore')
 var prefix = require('./prefixTag')
 
-
+/**
+ * Convert the way obj to a geojson feature
+ * @param  {object}
+ * @return {object} geojson feature
+ */
 module.exports = function(way) {
-  // console.log(relation.tags);
   var properties = _.extend({
     '@id': way.id,
     '@version': way.version,

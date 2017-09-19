@@ -11,6 +11,7 @@ module.exports = {
 		'isContinuous': require('./isContinuous'),
 		'simpleRole': require('./simpleRole'),
 		'wayFeature': require('./wayFeature'),
-		'nodeFeature': require('./nodeFeature')
+		'nodeFeature': require('./nodeFeature'),
+		'mergeFeaturesRelation': require('./mergeFeaturesRelation')
 	}
 	/* eslint-enable global-require */

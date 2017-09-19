@@ -2,7 +2,11 @@
 var _ = require('underscore')
 var prefix = require('./prefixTag')
 
-
+/**
+ * Convert the node objt to a geojson feature
+ * @param  {object}
+ * @return {object} geojson feature
+ */
 module.exports = function(node) {
   var properties = _.extend({
     '@id': node.id,
