@@ -4,6 +4,8 @@ var osmium = require('osmium')
 var _ = require('underscore')
 var turf = require('@turf/turf')
 var util = require('../../util')
+var time = require('time')(Date)
+
 
 module.exports = function(opts, pbfFile, outputFile, callback) {
   var wstream = fs.createWriteStream(outputFile)
@@ -12,11 +14,12 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
   var ways = {}
   var relations = {}
   var osmlint = 'filtertrbyusers'
-  opts.users = opts.users || '*'
-  var users = opts.users.split(',')
+  var users = (opts.users || '*').split(',')
+  opts.since = opts.since || 30 // 30 day by default.
+  var since = (time.time() - opts.since * 24 * 60 * 60)
   var handlerA = new osmium.Handler()
   handlerA.on('relation', function(relation) {
-    if (users.indexOf(relation.user) > -1 && relation.tags('type') === 'restriction') {
+    if ((users.indexOf(relation.user) > -1 || users[0] === '*') && since <= relation.timestamp_seconds_since_epoch && relation.tags('type') === 'restriction') {
       var members = relation.members()
       var relationFeature = util.relationFeature(relation)
       relations[relation.id] = relationFeature
