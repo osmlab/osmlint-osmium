@@ -4,7 +4,7 @@ Filter turn restrictions edited by community, we are avoiding where the Mapbox d
 
 ### usage
 
-`osmlinto filterbycommunity california.osm.pbf  --since 90 test.json`
+`osmlinto filtertrbycommunity california.osm.pbf  --since 90 test.json`
 
 Note:
 

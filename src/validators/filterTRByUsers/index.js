@@ -3,13 +3,8 @@ var fs = require('fs')
 var osmium = require('osmium')
 var _ = require('underscore')
 var turf = require('@turf/turf')
-var time = require('time')(Date)
 var util = require('../../util')
-var users = require('mapbox-data-team').getUsernames()
-users = users.reduce(function (memo, currentValue) {
-  memo[currentValue.toString()] = true
-  return memo
-}, {})
+var time = require('time')(Date)
 
 module.exports = function (opts, pbfFile, outputFile, callback) {
   var wstream = fs.createWriteStream(outputFile)
@@ -17,22 +12,20 @@ module.exports = function (opts, pbfFile, outputFile, callback) {
   var nodes = {}
   var ways = {}
   var relations = {}
-  var osmlint = 'filterbycommunity'
-  opts.since = opts.since || 30 // 30 day by default.
+  var osmlint = 'filtertrbyusers'
+  var users = (opts.users || '*').split(',')
+  opts.since = opts.since || 360 // 360 day by default.
   var since = (time.time() - opts.since * 24 * 60 * 60)
   var handlerA = new osmium.Handler()
   handlerA.on('relation', function (relation) {
-    if (!users.hasOwnProperty(relation.user) &&
-      since <= relation.timestamp_seconds_since_epoch &&
-      relation.tags('type') === 'restriction') {
+    if ((users.indexOf(relation.user) > -1 || users[0] === '*') && since <= relation.timestamp_seconds_since_epoch && relation.tags('type') === 'restriction') {
       var members = relation.members()
       var relationFeature = util.relationFeature(relation)
       relations[relation.id] = relationFeature
       for (var i = 0; i < members.length; i++) {
         var member = members[i]
         member.idrel = relation.id
-
-        // Check nodes
+          // Check nodes
         if (member.type === 'n') {
           if (nodes[member.ref]) {
             nodes[member.ref].push(member)
@@ -62,7 +55,7 @@ module.exports = function (opts, pbfFile, outputFile, callback) {
       var nodeRols = nodes[node.id]
       for (var n = 0; n < nodeRols.length; n++) {
         var nodeRel = nodeRols[n]
-        var nodeFeature = util.mergeNodeRelationFeature(node, relations[nodeRel.idrel], nodeRel)
+        var nodeFeature = util.mergeFeaturesRelation(util.nodeFeature(node), relations[nodeRel.idrel], nodeRel)
         if (relationMembers[nodeFeature.properties['@idrel']]) {
           relationMembers[nodeFeature.properties['@idrel']].push(nodeFeature)
         } else {
@@ -82,7 +75,7 @@ module.exports = function (opts, pbfFile, outputFile, callback) {
       var wayRols = ways[way.id]
       for (var m = 0; m < wayRols.length; m++) {
         var wayRol = wayRols[m]
-        var wayFeature = util.mergeWayRelationFeature(way, relations[wayRol.idrel], wayRol)
+        var wayFeature = util.mergeFeaturesRelation(util.wayFeature(way), relations[wayRol.idrel], wayRol)
         if (relationMembers[wayFeature.properties['@idrel']]) {
           relationMembers[wayFeature.properties['@idrel']].push(wayFeature)
         } else {
