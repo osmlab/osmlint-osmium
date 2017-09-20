@@ -5,5 +5,6 @@ module.exports = {
   'invalidRoleTR': require('./src/validators/invalidRoleTR'),
   'excessiveRolesTR': require('./src/validators/excessiveRolesTR'),
   'missingTypeRestrictionTR': require('./src/validators/missingTypeRestrictionTR'),
-  'redundantTROneway': require('./src/validators/redundantTROneway')
+  'redundantTROneway': require('./src/validators/redundantTROneway'),
+  'FilterTRByUsers': require('./src/validators/FilterTRByUsers')
 }

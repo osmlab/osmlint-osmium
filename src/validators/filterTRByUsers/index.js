@@ -6,8 +6,7 @@ var turf = require('@turf/turf')
 var util = require('../../util')
 var time = require('time')(Date)
 
-
-module.exports = function(opts, pbfFile, outputFile, callback) {
+module.exports = function (opts, pbfFile, outputFile, callback) {
   var wstream = fs.createWriteStream(outputFile)
   var relationMembers = {}
   var nodes = {}
@@ -18,7 +17,7 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
   opts.since = opts.since || 30 // 30 day by default.
   var since = (time.time() - opts.since * 24 * 60 * 60)
   var handlerA = new osmium.Handler()
-  handlerA.on('relation', function(relation) {
+  handlerA.on('relation', function (relation) {
     if ((users.indexOf(relation.user) > -1 || users[0] === '*') && since <= relation.timestamp_seconds_since_epoch && relation.tags('type') === 'restriction') {
       var members = relation.members()
       var relationFeature = util.relationFeature(relation)
@@ -50,7 +49,7 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
   osmium.apply(reader, handlerA)
 
   var handlerB = new osmium.Handler()
-  handlerB.on('node', function(node) {
+  handlerB.on('node', function (node) {
     if (nodes[node.id]) {
       // one node can belong to many relations
       var nodeRols = nodes[node.id]
@@ -70,7 +69,7 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
   osmium.apply(reader, handlerB)
 
   var handlerC = new osmium.Handler()
-  handlerC.on('way', function(way) {
+  handlerC.on('way', function (way) {
     if (ways[way.id]) {
       // one way can belong to many relations
       var wayRols = ways[way.id]
@@ -90,7 +89,7 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
   var locationHandler = new osmium.LocationHandler()
   osmium.apply(reader, locationHandler, handlerC)
 
-  handlerC.on('done', function() {
+  handlerC.on('done', function () {
     for (var rel in relationMembers) {
       if (relationMembers[rel].length > 0) {
         var fc = {
