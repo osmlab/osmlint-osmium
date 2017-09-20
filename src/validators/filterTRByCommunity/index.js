@@ -18,7 +18,7 @@ module.exports = function (opts, pbfFile, outputFile, callback) {
   var ways = {}
   var relations = {}
   var osmlint = 'filterbycommunity'
-  opts.since = opts.since || 30 // 30 day by default.
+  opts.since = opts.since || 360 // 360 day by default.
   var since = (time.time() - opts.since * 24 * 60 * 60)
   var handlerA = new osmium.Handler()
   handlerA.on('relation', function (relation) {
