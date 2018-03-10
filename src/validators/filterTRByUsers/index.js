@@ -113,5 +113,5 @@ module.exports = function (opts, pbfFile, outputFile, callback) {
   handlerB.end()
   handlerC.end()
   wstream.end()
-  callback()
+  wstream.on('close', callback)
 }
