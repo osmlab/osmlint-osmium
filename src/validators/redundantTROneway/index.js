@@ -184,5 +184,5 @@ module.exports = function (tags, pbfFile, outputFile, callback) {
   handlerB.end()
   handlerC.end()
   wstream.end()
-  callback()
+  wstream.on('close', callback)
 }
