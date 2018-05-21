@@ -7,5 +7,6 @@ module.exports = {
   'missingTypeRestrictionTR': require('./src/validators/missingTypeRestrictionTR'),
   'redundantTROneway': require('./src/validators/redundantTROneway'),
   'filterTRByUsers': require('./src/validators/filterTRByUsers'),
-  'filterTRByCommunity': require('./src/validators/filterTRByCommunity')
+  'filterTRByCommunity': require('./src/validators/filterTRByCommunity'),
+  'joeTestLinter': require('./src/validators/joeTestLinter')
 }
