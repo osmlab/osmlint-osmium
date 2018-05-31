@@ -28,7 +28,7 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
 
   var filterbyuser = {
     Rub21: true,
-    Richrico: true,
+    RichRico: true,
     karitotp: true,
     dannykath: true,
     ridixcr: true,
@@ -39,7 +39,7 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
 
   var disbyuser = {
     Rub21: 0,
-    Richrico: 0,
+    RichRico: 0,
     karitotp: 0,
     dannykath: 0,
     ridixcr: 0,
@@ -53,16 +53,27 @@ module.exports = function(opts, pbfFile, outputFile, callback) {
   handler.on('way', function(way) {
  
     if (prevent[way.tags().highway] && filterbyuser[way.user] && way.timestamp_seconds_since_epoch >= opts.date) {      
-      var wayFeature = util.wayFeature(way)
-      wayFeature.properties._osmlint = osmlint
-      var distance = SegmentDistance(wayFeature);
+        var wayFeature = util.wayFeature(way)
+        wayFeature.properties._osmlint = osmlint
+      
+        var distance = SegmentDistance(wayFeature);
 
-      disbyuser[way.user]=disbyuser[way.user] + distance;
-      teamDistance = teamDistance + distance;
-      console.log('Team distance = ' + teamDistance + ' MK');
-      console.log('Distance by user:')
-      console.log(disbyuser);
-      wstream.write(JSON.stringify(wayFeature) + '\n')
+        if (way.version == opts.version) {
+            disbyuser[way.user]=disbyuser[way.user] + distance;
+            teamDistance = teamDistance + distance;
+            console.log('Team distance ' + teamDistance + ' MK');
+            console.log('Distance by user:');
+            console.log(disbyuser);
+            wstream.write(JSON.stringify(wayFeature) + '\n')
+        }
+        if (opts.version == null){
+            disbyuser[way.user]=disbyuser[way.user] + distance;
+            teamDistance = teamDistance + distance;
+            console.log('Team distance ' + teamDistance + ' MK');
+            console.log('Distance by user:');
+            console.log(disbyuser);
+            wstream.write(JSON.stringify(wayFeature) + '\n')
+        }
     }
   })
 
